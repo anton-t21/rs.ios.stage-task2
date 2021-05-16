@@ -8,17 +8,15 @@
     int globalStartPosition = 0;
 
     for (NSNumber *key in array) {
-        int actualStartPosition = globalStartPosition;
-        for (int n = actualStartPosition; n < count - 1; n++) {
+        for (int n = globalStartPosition; n < count - 1; n++) {
             int currentElement = key.intValue;
-            int nextElement = array[actualStartPosition + 1].intValue;
+            int nextElement = array[n + 1].intValue;
             int difference = abs(currentElement - nextElement);
             if (difference == number.intValue) {
-                result = result + 1;
+                result++;
             }
-            actualStartPosition++;
         }
-        globalStartPosition = globalStartPosition + 1;
+        globalStartPosition++;
     }
     return result;
 }
